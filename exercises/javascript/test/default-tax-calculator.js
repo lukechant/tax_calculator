@@ -36,7 +36,7 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
       else if (co2Emissions <= 190) taxAmount = 820;
       else if (co2Emissions <= 225) taxAmount = 1230;
       else if (co2Emissions <= 255) taxAmount = 1750;
-      else if (co2Emissions > 225) taxAmount = 2060;
+      else taxAmount = 2060;
     } else if (fuelType === "Diesel") {
         if (co2Emissions === 0) taxAmount = 0;
         else if (co2Emissions <= 50) taxAmount = 25;
@@ -49,8 +49,7 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
         else if (co2Emissions <= 170) taxAmount = 830;
         else if (co2Emissions <= 190) taxAmount = 1240;
         else if (co2Emissions <= 225) taxAmount = 1760;
-        else if (co2Emissions <= 255) taxAmount = 2070;
-        else if (co2Emissions > 225) taxAmount = 2070;
+        else taxAmount = 2070;
       }
     return taxAmount;
   }
