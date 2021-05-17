@@ -64,8 +64,7 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
       } else if (vehicle.co2Emissions > 225) {
         taxAmount = 2060;
       }
-    }
-    if (vehicle.fuelType === "Diesel") {
+    } else if (vehicle.fuelType === "Diesel") {
         if (vehicle.co2Emissions === 0) {
           taxAmount = 0;
         } else if (vehicle.co2Emissions > 0 && vehicle.co2Emissions <= 50) {
