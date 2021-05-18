@@ -1,6 +1,11 @@
 const { DefaultTaxCalculator } = require('./default-tax-calculator');
 const { Vehicle } = require('../vehicle');
 const { FuelType } = require('../fuel-type');
+const { featureSwitches } = require("./feature-switch");
+
+beforeAll(() => {
+  featureSwitches.storyFiveSwitch = true
+});
 
 describe('Tax calculator on expensive vehicles over 40K after the first year', () => {
   let taxCalculator = new DefaultTaxCalculator();
@@ -22,3 +27,7 @@ describe('Tax calculator on expensive vehicles over 40K after the first year', (
     expect(taxCalculator.calculateTax(vehicle)).toBe(440);
   })
 })
+
+afterAll(() => {
+  featureSwitches.storyFiveSwitch = false
+});

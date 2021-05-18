@@ -1,5 +1,6 @@
 const { TaxCalculator } = require("../tax-calculator");
 const vehicle = require("../vehicle");
+const { featureSwitches } = require("./feature-switch");
 
 let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
   constructor() {
@@ -53,11 +54,11 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
               else if (co2Emissions <= 225) taxAmount = 1760;
               else taxAmount = 2070;
           }
-    } else if (listPrice < 40000) {
+    } else if (listPrice < 40000 && featureSwitches.storyFourSwitch) {
         if (fuelType === "Petrol" || fuelType === "Diesel") taxAmount = 140;
         if (fuelType === "Electric") taxAmount = 0;
         if (fuelType === "Alternative fuel") taxAmount = 130;
-    } else {
+    } else if (featureSwitches.storyFiveSwitch) {
       if (fuelType === "Diesel" || fuelType === "Petrol") {taxAmount = 450;}
       else if (fuelType === "Electric") taxAmount = 310;
       else if (fuelType === "Alternative fuel") taxAmount = 440;
