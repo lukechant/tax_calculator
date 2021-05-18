@@ -1,11 +1,6 @@
 const { DefaultTaxCalculator } = require('./default-tax-calculator');
 const { Vehicle } = require('../vehicle');
 const { FuelType } = require('../fuel-type');
-const { featureSwitches } = require("./feature-switch");
-
-beforeAll(() => {
-  featureSwitches.storyFourSwitch = true
-});
 
 describe('Tax calculator on vehicles after the first year', () => {
   let taxCalculator = new DefaultTaxCalculator();
@@ -27,6 +22,3 @@ describe('Tax calculator on vehicles after the first year', () => {
   })
 })
 
-afterAll(() => {
-  featureSwitches.storyFourSwitch = false
-});
