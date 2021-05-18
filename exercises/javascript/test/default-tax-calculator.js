@@ -7,9 +7,11 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
   }
   calculateTax(vehicle) {
     let taxAmount = 0;
-    let { co2Emissions, fuelType } = vehicle;
+    let { co2Emissions, fuelType, dateOfFirstRegistration, listPrice } = vehicle;
 
-    if (fuelType === "Petrol") {
+
+if (dateOfFirstRegistration.getFullYear() === 2020) {
+if (fuelType === "Petrol") {
       if (co2Emissions === 0) taxAmount = 0;
       else if (co2Emissions <= 50) taxAmount = 10;
       else if (co2Emissions <= 75) taxAmount = 25;
@@ -50,9 +52,17 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
         else if (co2Emissions <= 190) taxAmount = 1240;
         else if (co2Emissions <= 225) taxAmount = 1760;
         else taxAmount = 2070;
-      }
-    return taxAmount;
-  }
+      } return taxAmount;
+} 
+else {
+  if (fuelType === "Diesel" || fuelType === "Petrol") {taxAmount = 450;} 
+  else if (fuelType === "Electric") taxAmount = 310;
+  else if (fuelType === "Alternative fuel") taxAmount = 440;
+
+  return taxAmount; 
+
+   }
+  };
 };
 
 module.exports = {

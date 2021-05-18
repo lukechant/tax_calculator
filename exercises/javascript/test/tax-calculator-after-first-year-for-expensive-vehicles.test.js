@@ -1,10 +1,11 @@
-const { DummyTaxCalculator } = require('./dummy-tax-calculator');
+const { DefaultTaxCalculator } = require('./default-tax-calculator');
 const { Vehicle } = require('../vehicle');
 const { FuelType } = require('../fuel-type');
 
-describe.skip('Tax calculator on expensive vehicles over 40K after the first year', () => {
-  let taxCalculator = new DummyTaxCalculator();
+describe('Tax calculator on expensive vehicles over 40K after the first year', () => {
+  let taxCalculator = new DefaultTaxCalculator();
   let FIRST_OF_APRIL_2017 = new Date(2017, 4, 1);
+  console.log(FIRST_OF_APRIL_2017);
 
   it('subsequent years tax for petrol vehicles over 40K', () => {
     const vehicle = new Vehicle(206, FuelType.PETROL, FIRST_OF_APRIL_2017, 50000);
