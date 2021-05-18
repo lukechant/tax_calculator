@@ -10,7 +10,7 @@ let DefaultTaxCalculator = class DefaultTaxCalculator extends TaxCalculator {
     let { co2Emissions, fuelType, dateOfFirstRegistration, listPrice  } = vehicle;
 
 
-    if (dateOfFirstRegistration.getFullYear() === new Date(2020, 1, 1).getFullYear()) {
+    if (dateOfFirstRegistration.getFullYear() === 2020) {
         if (fuelType === "Petrol") {
             if (co2Emissions === 0) taxAmount = 0;
             else if (co2Emissions <= 50) taxAmount = 10;
